@@ -1,11 +1,11 @@
 <template>
-    <nav class="bg-gray-800 text-white">
+    <nav class="bg-blue-600 text-white">
       <div class="max-w-6xl mx-auto px-4">
         <div class="flex justify-between">
           <div class="flex space-x-4">
             <div>
-              <a href="/" class="flex items-center py-5 px-2 text-gray-700">
-                <span class="font-bold">Richies Epic Fail</span>
+              <a href="/" class="flex items-center py-5 px-2 text-white">
+                <span class="font-bold text-xl">Richies Epic Fail</span>
               </a>
             </div>
             <div class="hidden md:flex items-center space-x-1">
