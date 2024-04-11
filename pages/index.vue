@@ -1,7 +1,7 @@
 <script setup lang="ts">
 let intervalId: NodeJS.Timeout;
 const slide = ref("1.png");
-const slides = ref(["1.png", "2.png", "3.png", "4.webp"]);
+const slides = ref(["1.png", "2.png", "3.png", "4.webp", "5.webp", "6.png"]);
 
 const advancedSlide = () => {
   const currentIndex = slides.value.findIndex((s) => s === slide.value);
