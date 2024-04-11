@@ -6,20 +6,40 @@
       transition-next="slide-left"
       animated
       control-color="primary"
-      class="rounded-borders"
+      class="rounded-borders custom-carousel"
     >
-      <q-carousel-slide name="style" class="column no-wrap flex-center">
-        <img src="/image/first.png" alt="Style" />
+      <q-carousel-slide name="style" class="carousel-slide">
+        <img src="/image/first.png" alt="Style" class="carousel-image" />
       </q-carousel-slide>
-      <q-carousel-slide name="tv" class="column no-wrap flex-center">
-        <img src="/image/second.png" alt="TV" />
+      <q-carousel-slide name="tv" class="carousel-slide">
+        <img src="/image/second.png" alt="TV" class="carousel-image" />
       </q-carousel-slide>
-      <q-carousel-slide name="layers" class="column no-wrap flex-center">
-        <img src="/image/third.png" alt="Layers" />
+      <q-carousel-slide name="layers" class="carousel-slide">
+        <img src="/image/third.png" alt="Layers" class="carousel-image" />
       </q-carousel-slide>
     </q-carousel>
   </div>
 </template>
+
+<style scoped>
+.custom-carousel .q-carousel-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.carousel-image {
+  width: auto; 
+  max-width: none; 
+  height: 100%;
+}
+</style>
 
 <script lang="ts">
 import { onMounted, onUnmounted, ref } from "vue";
