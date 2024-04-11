@@ -1,68 +1,35 @@
-<template>
-  <Navbar></Navbar>
-  <div class="q-pa-md">
-    <q-carousel
-      v-model="slide"
-      transition-prev="slide-right"
-      transition-next="slide-left"
-      animated
-      control-color="primary"
-      class="rounded-lg overflow-hidden relative custom-carousel"
-    >
-      <q-carousel-slide
-        name="style"
-        class="relative overflow-hidden flex justify-center items-center h-full"
-      >
-        <img
-          src="/image/first.png"
-          alt="Style"
-          class="h-full w-auto max-w-none"
-        />
-      </q-carousel-slide>
-      <q-carousel-slide
-        name="tv"
-        class="relative overflow-hidden flex justify-center items-center h-full"
-      >
-        <img
-          src="/image/second.png"
-          alt="TV"
-          class="h-full w-auto max-w-none"
-        />
-      </q-carousel-slide>
-      <q-carousel-slide
-        name="layers"
-        class="relative overflow-hidden flex justify-center items-center h-full"
-      >
-        <img
-          src="/image/third.png"
-          alt="Layers"
-          class="h-full w-auto max-w-none"
-        />
-      </q-carousel-slide>
-    </q-carousel>
-  </div>
-</template>
+<script setup lang="ts">
+let intervalId: NodeJS.Timeout;
+const slide = ref("1.png");
+const slides = ref(["1.png", "2.png", "3.png", "4.webp"]);
 
-<script lang="ts">
-import { onMounted, onUnmounted, ref } from "vue";
-
-export default {
-  setup() {
-    const slide = ref("style");
-    const slides = ref(["style", "tv", "layers"]);
-    let intervalId: any;
-
-    const advanceSlide = () => {
-      const currentIndex = slides.value.indexOf(slide.value);
-      const nextIndex = (currentIndex + 1) % slides.value.length;
-      slide.value = slides.value[nextIndex];
-    };
-
-    onMounted(() => (intervalId = setInterval(advanceSlide, 3000)));
-
-    onUnmounted(() => clearInterval(intervalId));
-
-    return { slide };
-  },
+const advancedSlide = () => {
+  const currentIndex = slides.value.findIndex((s) => s === slide.value);
+  const nextIndex = (currentIndex + 1) % slides.value.length;
+  slide.value = slides.value[nextIndex];
 };
+
+onMounted(() => (intervalId = setInterval(advancedSlide, 5000)));
+onUnmounted(() => clearInterval(intervalId));
 </script>
+
+<template>
+  <q-carousel
+    v-model="slide"
+    transition-prev="slide-right"
+    transition-next="slide-left"
+    animated
+    control-color="primary"
+    class="rounded-lg overflow-hidden relative custom-carousel"
+  >
+    <q-carousel-slide
+      v-for="item in slides"
+      :key="item"
+      :name="item"
+      class="relative overflow-hidden flex justify-center items-center h-full w-full"
+    >
+      <img :src="'/images/' + item" class="h-full w-full object-contain" />
+    </q-carousel-slide>
+  </q-carousel>
+  <button @click="$q.dark.toggle()">theme</button>
+</template>

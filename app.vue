@@ -1,3 +1,12 @@
+<script lang="ts" setup>
+const darkActive = ["body--dark"];
+useQuasar().dark.set(true);
+useHead({ bodyAttrs: { class: darkActive } });
+</script>
+
 <template>
-  <NuxtPage />
+  <NuxtLayout :key="darkActive.join('')">
+    <Navbar />
+    <NuxtPage />
+  </NuxtLayout>
 </template>
