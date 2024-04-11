@@ -32,4 +32,5 @@ onUnmounted(() => clearInterval(intervalId));
     </q-carousel-slide>
   </q-carousel>
   <button @click="$q.dark.toggle()">theme</button>
+  <div class="text-xl text-red-500">asd</div>
 </template>
