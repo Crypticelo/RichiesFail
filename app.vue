@@ -6,7 +6,6 @@ useHead({ bodyAttrs: { class: darkActive } });
 
 <template>
   <NuxtLayout :key="darkActive.join('')">
-    <Navbar />
     <NuxtPage />
   </NuxtLayout>
 </template>

@@ -14,23 +14,51 @@ onUnmounted(() => clearInterval(intervalId));
 </script>
 
 <template>
-  <q-carousel
-    v-model="slide"
-    transition-prev="slide-right"
-    transition-next="slide-left"
-    animated
-    control-color="primary"
-    class="rounded-lg overflow-hidden relative custom-carousel"
-  >
-    <q-carousel-slide
-      v-for="item in slides"
-      :key="item"
-      :name="item"
-      class="relative overflow-hidden flex justify-center items-center h-full w-full"
+  <div class="full-screen-carousel">
+    <q-carousel
+      v-model="slide"
+      transition-prev="slide-right"
+      transition-next="slide-left"
+      animated
+      control-color="primary"
+      class="custom-carousel"
     >
-      <img :src="'/images/' + item" class="h-full w-full object-contain" />
-    </q-carousel-slide>
-  </q-carousel>
-
-  <slot></slot>
+      <q-carousel-slide v-for="item in slides" :key="item" :name="item">
+        <img :src="'/images/' + item" class="h-full w-full object-cover" />
+      </q-carousel-slide>
+    </q-carousel>
+    <div class="overlay-content">
+      <Navbar />
+      <slot></slot>
+    </div>
+  </div>
 </template>
+
+<style scoped>
+.full-screen-carousel {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+
+.custom-carousel {
+  height: 100%;
+  width: 100%;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover; /* Ensures that images cover the carousel area without distortion */
+}
+</style>
