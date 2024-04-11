@@ -14,19 +14,23 @@ onUnmounted(() => clearInterval(intervalId));
 </script>
 
 <template>
-  <div class="fixed inset-0 z-0">
-    <q-carousel
-      v-model="slide"
-      transition-prev="slide-right"
-      transition-next="slide-left"
-      animated
-      class="h-full w-full object-contain"
+  <q-carousel
+    v-model="slide"
+    transition-prev="slide-right"
+    transition-next="slide-left"
+    animated
+    control-color="primary"
+    class="rounded-lg overflow-hidden relative custom-carousel"
+  >
+    <q-carousel-slide
+      v-for="item in slides"
+      :key="item"
+      :name="item"
+      class="relative overflow-hidden flex justify-center items-center h-full w-full"
     >
-      <q-carousel-slide v-for="item in slides" :key="item" :name="item">
-        <img :src="'/images/' + item" class="h-full w-full object-contain" />
-      </q-carousel-slide>
-    </q-carousel>
-  </div>
+      <img :src="'/images/' + item" class="h-full w-full object-contain" />
+    </q-carousel-slide>
+  </q-carousel>
 
   <slot></slot>
 </template>
