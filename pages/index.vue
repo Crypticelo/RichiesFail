@@ -1,4 +1,5 @@
 <template>
+  <Navbar></Navbar>
   <div class="q-pa-md">
     <q-carousel
       v-model="slide"
