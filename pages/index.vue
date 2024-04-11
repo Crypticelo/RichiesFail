@@ -6,40 +6,41 @@
       transition-next="slide-left"
       animated
       control-color="primary"
-      class="rounded-borders custom-carousel"
+      class="rounded-lg overflow-hidden relative custom-carousel"
     >
-      <q-carousel-slide name="style" class="carousel-slide">
-        <img src="/image/first.png" alt="Style" class="carousel-image" />
+      <q-carousel-slide
+        name="style"
+        class="relative overflow-hidden flex justify-center items-center h-full"
+      >
+        <img
+          src="/image/first.png"
+          alt="Style"
+          class="h-full w-auto max-w-none"
+        />
       </q-carousel-slide>
-      <q-carousel-slide name="tv" class="carousel-slide">
-        <img src="/image/second.png" alt="TV" class="carousel-image" />
+      <q-carousel-slide
+        name="tv"
+        class="relative overflow-hidden flex justify-center items-center h-full"
+      >
+        <img
+          src="/image/second.png"
+          alt="TV"
+          class="h-full w-auto max-w-none"
+        />
       </q-carousel-slide>
-      <q-carousel-slide name="layers" class="carousel-slide">
-        <img src="/image/third.png" alt="Layers" class="carousel-image" />
+      <q-carousel-slide
+        name="layers"
+        class="relative overflow-hidden flex justify-center items-center h-full"
+      >
+        <img
+          src="/image/third.png"
+          alt="Layers"
+          class="h-full w-auto max-w-none"
+        />
       </q-carousel-slide>
     </q-carousel>
   </div>
 </template>
-
-<style scoped>
-.custom-carousel .q-carousel-slide {
-  position: relative;
-  overflow: hidden;
-}
-
-.carousel-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.carousel-image {
-  width: auto; 
-  max-width: none; 
-  height: 100%;
-}
-</style>
 
 <script lang="ts">
 import { onMounted, onUnmounted, ref } from "vue";
@@ -47,10 +48,6 @@ import { onMounted, onUnmounted, ref } from "vue";
 export default {
   setup() {
     const slide = ref("style");
-    const lorem = ref(
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque voluptatem totam, architecto cupiditate officia rerum, error dignissimos praesentium libero ab nemo provident incidunt ducimus iusto perferendis porro earum. Totam, numquam?"
-    );
-
     const slides = ref(["style", "tv", "layers"]);
     let intervalId: any;
 
@@ -60,18 +57,11 @@ export default {
       slide.value = slides.value[nextIndex];
     };
 
-    onMounted(() => {
-      intervalId = setInterval(advanceSlide, 3000); // changes slide every 3000 milliseconds (3 seconds)
-    });
+    onMounted(() => (intervalId = setInterval(advanceSlide, 3000)));
 
-    onUnmounted(() => {
-      clearInterval(intervalId);
-    });
+    onUnmounted(() => clearInterval(intervalId));
 
-    return {
-      slide,
-      lorem,
-    };
+    return { slide };
   },
 };
 </script>
