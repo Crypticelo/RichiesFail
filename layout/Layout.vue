@@ -24,7 +24,7 @@ onUnmounted(() => clearInterval(intervalId));
       class="custom-carousel"
     >
       <q-carousel-slide v-for="item in slides" :key="item" :name="item">
-        <img :src="'/images/' + item" class="h-full w-full object-cover" />
+        <img :src="'/images/' + item" class="h-full w-full object-contain" />
       </q-carousel-slide>
     </q-carousel>
     <div class="overlay-content">
@@ -39,6 +39,7 @@ onUnmounted(() => clearInterval(intervalId));
   position: relative;
   height: 100vh;
   width: 100vw;
+  padding-top: 50px;
 }
 
 .custom-carousel {
@@ -59,6 +60,6 @@ onUnmounted(() => clearInterval(intervalId));
 img {
   height: 100%;
   width: 100%;
-  object-fit: cover; /* Ensures that images cover the carousel area without distortion */
+  object-fit: contain;
 }
 </style>
