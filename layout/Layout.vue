@@ -58,6 +58,7 @@ onUnmounted(() => clearInterval(intervalId));
 }
 
 img {
+  opacity: 0.25;
   height: 100%;
   width: 100%;
   object-fit: contain;
