@@ -8,7 +8,7 @@
               <span class="font-bold text-xl">Richies Epic Fail</span>
             </a>
           </div>
-          <div class="hidden md:flex items-center space-x-1">
+          <div class="md:flex items-center space-x-4">
             <a href="/" class="py-5 px-3 hover:bg-gray-700">Home</a>
             <a href="/about" class="py-5 px-3 hover:bg-gray-700"
               >About Richie</a
