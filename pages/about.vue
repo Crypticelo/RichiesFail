@@ -4,7 +4,7 @@
       <div class="max-w-4xl p-5 bg-white shadow-xl rounded-lg">
         <h1 class="text-2xl font-bold text-center text-gray-900">About the Coding Wizard Richie</h1>
         <p class="mt-5 text-gray-700">
-          Welcome to the digital realm of a coding enthusiast who just turned 26 and thought, “Why not get a Bachelor's degree and dive into software engineering?” So, here I am, coming to you from the charming landscapes of Baden-Württemberg, wielding Vue.js and Go like a true tech knight!
+          Welcome to the digital realm of a coding enthusiast who just turned 27 and thought, “Why not get a Bachelor's degree and dive into software engineering?” So, here I am, coming to you from the charming landscapes of Baden-Württemberg, wielding Vue.js and Go like a true tech knight!
         </p>
         <p class="mt-4 text-gray-700">
           By day, I battle bugs and build features. By night, I don my moderator’s hat on a bustling Coding Discord server, guiding lost souls through the dark forests of code and debugging.
